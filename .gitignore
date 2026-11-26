@@ -1,0 +1,8 @@
+.env*
+bin/
+obj/
+prompt*.md
+codex-*
+*.log
+docs-elavon/
+.DS_Store

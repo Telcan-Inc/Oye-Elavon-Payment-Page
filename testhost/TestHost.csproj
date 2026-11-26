@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net11.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../site/App_Code/ElavonGateway.cs" Link="ElavonGateway.cs" />
+    <Compile Include="../site/App_Code/OyeCheckout.cs" Link="OyeCheckout.cs" />
+    <Content Include="../site/PayOnline.css" Link="PayOnline.css" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>

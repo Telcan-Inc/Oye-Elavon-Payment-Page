@@ -1,0 +1,11 @@
+.oye-card { box-sizing:border-box; max-width:32rem; margin:clamp(1rem,6vw,4rem) auto; padding:clamp(1rem,5vw,2.25rem); border:1px solid #d3d3d3; border-top:5px solid #f7941d; border-radius:8px; background:#fafafa; color:#292929; font:1rem/1.5 Arial,sans-serif; overflow-wrap:anywhere }
+.oye-card h1 { margin:0 0 1.25rem; font-size:2rem; line-height:1.15 }
+.oye-card fieldset { border:0; padding:0; margin:1.25rem 0 }
+.oye-card legend,.oye-card > label,.oye-card dt { font-weight:600 }
+.oye-card input[type=tel],.oye-card input[name=other] { display:block; box-sizing:border-box; width:100%; margin-top:.3rem; padding:.65rem; border:1px solid #888; border-radius:4px; font:inherit }
+.oye-options { display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.4rem }
+.oye-option { padding:.45rem .55rem; border:1px solid #aaa; border-radius:4px; background:white; cursor:pointer }
+.oye-option:has(:checked) { background:#fff0db; border-color:#994b05 }
+.oye-action { display:inline-block; padding:.65rem 1.4rem; border:0; border-radius:4px; color:#24180a; background:#f7941d; font:600 1rem/1.5 Arial,sans-serif; cursor:pointer; text-decoration:none }
+.oye-message { padding:.65rem; background:#ececec }
+.oye-card dd { margin:0 0 .75rem }
