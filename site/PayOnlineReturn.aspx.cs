@@ -7,7 +7,7 @@ public partial class PayOnlineReturn : BasePage
         Response.Cache.SetNoStore();
         string reference = Request.QueryString["ref"], appendedId = Request.QueryString["sessionId"];
         var attempt = Session["oye:attempt:" + reference] as OyeCheckout.Attempt;
-        string retry = ResolveUrl("~/PayOnline.aspx");
+        string retry = "PayOnline.aspx";
         string issue = OyeCheckout.Missing;
         if (attempt != null && (appendedId == null || appendedId == attempt.SessionId))
         {

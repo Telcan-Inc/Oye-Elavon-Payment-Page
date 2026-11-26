@@ -15,15 +15,18 @@ Standalone "Pay online" page for oyemobile.ca using the Elavon Payment Gateway h
 
 ## Deploy
 
-Copy both PayOnline and PayOnlineReturn .aspx/.aspx.cs pairs and PayOnline.css from site/ to the **Web Site application root**. Merge the two .cs files from site/App_Code/ into its App_Code/. The pages use BasePage and ~/site/site.master. For cphMain, rename to the master's placeholder if different. The master should provide a server form, cphHead and a mobile viewport.
-
-Add these placeholders under web.config's appSettings. Supply the actual credentials through private deployment configuration.
+1. Copy `PayOnline.aspx`, `PayOnlineReturn.aspx` (with their `.aspx.cs` files) and `PayOnline.css` into one folder, for example `/pay/`. The pages link to each other relatively, so any folder works.
+2. Copy `ElavonGateway.cs` and `OyeCheckout.cs` into the site's **root** `App_Code/` folder (ASP.NET only compiles `App_Code` at the application root, not inside `/pay/`).
+3. The pages use `~/site/site.master`, its `cphHead` and `cphBody` placeholders, and `BasePage`, the same as `FAQs.aspx`.
+4. Add these keys under `appSettings` in `web.config` (sandbox values are shared privately, not in git):
 
 ```xml
 <add key="Elavon.Host" value="https://api.sandbox.elavonpayments.com" />
 <add key="Elavon.MerchantAlias" value="YOUR_MERCHANT_ALIAS" />
 <add key="Elavon.SecretKey" value="YOUR_SECRET_KEY" />
 ```
+
+5. Open `https://www.oyemobile.ca/pay/PayOnline.aspx`.
 
 ## Checkout in five steps
 

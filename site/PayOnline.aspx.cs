@@ -24,7 +24,7 @@ public partial class PayOnline : BasePage
             {
                 string redirect;
                 var attempt = OyeCheckout.Start(ElavonGateway.FromAppSettings(), account, amount,
-                    AbsolutePage("~/PayOnlineReturn.aspx"), AbsolutePage("~/PayOnline.aspx"), out redirect);
+                    AbsolutePage("PayOnlineReturn.aspx"), AbsolutePage("PayOnline.aspx"), out redirect);
                 Session["oye:attempt:" + attempt.Reference] = attempt;
                 Response.Redirect(redirect, false);
                 Context.ApplicationInstance.CompleteRequest();
@@ -35,5 +35,6 @@ public partial class PayOnline : BasePage
         Fields.Text = OyeCheckout.Fields(account, choice, other, issue);
     }
 
-    string AbsolutePage(string page) { return new Uri(Request.Url, ResolveUrl(page)).AbsoluteUri; }
+    // Relative to this page's folder (e.g. /pay/), so the pages work in any folder.
+    string AbsolutePage(string page) { return new Uri(Request.Url, page).AbsoluteUri; }
 }
