@@ -31,13 +31,16 @@ public sealed class ElavonGateway
 #endif
     }
 
-#if NETFRAMEWORK
-    public static ElavonGateway FromAppSettings()
+    // Elavon SANDBOX (test) keys, hardcoded for testing (Tahir 2026-11-27).
+    // TODO live: load the live host, merchant alias and secret key from the database instead.
+    public const string SandboxHost = "https://api.sandbox.elavonpayments.com";
+    public const string SandboxMerchantAlias = "jy88xhgftrw63qd47bv7332wfd3t";
+    public const string SandboxSecretKey = "sk_rkb4mhrdbcw9gbdw678bhdwppb3r";
+
+    public static ElavonGateway Create()
     {
-        var s = System.Configuration.ConfigurationManager.AppSettings;
-        return new ElavonGateway(s["Elavon.Host"], s["Elavon.MerchantAlias"], s["Elavon.SecretKey"]);
+        return new ElavonGateway(SandboxHost, SandboxMerchantAlias, SandboxSecretKey);
     }
-#endif
 
     public Dictionary<string, object> CreateOrder(decimal amount, string currency, string reference, string description)
     {

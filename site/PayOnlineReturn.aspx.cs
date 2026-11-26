@@ -14,7 +14,7 @@ public partial class PayOnlineReturn : BasePage
             retry += "?acct=" + attempt.Account;
             try
             {
-                var result = ElavonGateway.FromAppSettings().VerifyPayment(attempt.SessionId);
+                var result = ElavonGateway.Create().VerifyPayment(attempt.SessionId);
                 issue = OyeCheckout.Check(attempt, result);
                 if (issue == null)
                 {
